@@ -1,8 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
-const CardProducts = ({ data, index }) => {
-    console.log('data ', index)
+const CardProducts = (props) => {
+    const { id, name, price } = props
+    console.log('data ', id, name, price)
+
     return (
         // <TouchableOpacity
         //     key={data.id}
@@ -16,7 +18,7 @@ const CardProducts = ({ data, index }) => {
         //         flexDirection: 'row',
         //         alignItems: 'center',
         //     }}>
-        <Text>{'data.name'}</Text>
+        <Text > {name}</Text >
         // </TouchableOpacity>
     )
 }

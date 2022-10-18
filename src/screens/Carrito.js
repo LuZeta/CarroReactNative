@@ -67,7 +67,7 @@ const Carrito = ({ data }) => {
           {pedidos ? pedidos.map((value) => {
             console.log('value ', value)
             return (
-              <CardProducts />
+              <CardProducts {...value} />
             )
           }) : null}
         </View>
@@ -285,7 +285,7 @@ const Carrito = ({ data }) => {
                   color: COLOURS.black,
                   opacity: 0.8,
                 }}>
-                &#8377;{total / 20}
+                $ {total / 20}
               </Text>
             </View>
             <View
@@ -310,20 +310,20 @@ const Carrito = ({ data }) => {
                   fontWeight: '500',
                   color: COLOURS.black,
                 }}>
-                &#8377;{total + total / 20}
+                $ {total + total / 20}
               </Text>
             </View>
           </View>
         </View>
       </ScrollView>
 
-      {pedidos?.map(((value, i) => {
+      {/* {pedidos?.map(((value, i) => {
         return (
           <View key={value.id}>
             <Text>{value.name}</Text>
           </View>
         )
-      }))}
+      }))} */}
     </View>
   )
 }
