@@ -13,7 +13,7 @@ export const addShop = data => ({
 const Carrito = (state = initialState, action) => {
     switch (action.type) {
         case ADDITEM:
-            console.log('action.payload ', action.payload)
+
             const { id, name, price } = action.payload;
             if (state.pedidos.length == 0) {
                 return {

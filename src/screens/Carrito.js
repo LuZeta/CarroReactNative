@@ -4,7 +4,7 @@ import { COLOURS } from '../../constants/colors'
 import { connect } from 'react-redux'
 
 const Carrito = ({ data }) => {
-  console.log('data ', data)
+  const { pedidos } = data;
   return (
     <View
       style={{
@@ -14,7 +14,13 @@ const Carrito = ({ data }) => {
         position: 'relative',
         paddingVertical: 30,
       }}>
-      <Text>Carrito</Text>
+      {pedidos?.map(((value, i) => {
+        return (
+          <View key={value.id}>
+            <Text>{value.name}</Text>
+          </View>
+        )
+      }))}
     </View>
   )
 }
