@@ -241,7 +241,7 @@ const MisProductos = () => {
               letterSpacing: 1,
               marginRight: 10,
             }}>
-            Place on Order
+            Añadir al Carrito
           </Text>
           <Entypo
             name="chevron-right"
