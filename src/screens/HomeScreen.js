@@ -1,9 +1,71 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { COLOURS } from '../../constants/colors'
 import Material from '@expo/vector-icons/MaterialCommunityIcons'
+import FontAwesome from '@expo/vector-icons/FontAwesome'
+import { Categories } from '../database/items'
 
 const HomeScreen = () => {
+  const [currentSelected, setCurrentSelected] = useState([0]);
+
+  const renderCategories = ({ item, index }) => {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.9}
+        onPress={() => setCurrentSelected(index)}>
+        <View
+          style={{
+            width: 120,
+            height: 180,
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            backgroundColor:
+              currentSelected == index ? COLOURS.accent : COLOURS.white,
+            borderRadius: 20,
+            margin: 10,
+            elevation: 5,
+          }}>
+          <View style={{ width: 60, height: 60 }}>
+            <Image
+              source={item.image}
+              style={{
+                width: '100%',
+                height: '100%',
+                resizeMode: 'center',
+              }}
+            />
+          </View>
+          <Text
+            style={{
+              fontSize: 16,
+              color: COLOURS.black,
+              fontWeight: '600',
+            }}>
+            {item.name}
+          </Text>
+          <View
+            style={{
+              width: 30,
+              height: 30,
+              borderRadius: 100,
+              backgroundColor:
+                currentSelected == index ? COLOURS.white : COLOURS.accentRed,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <FontAwesome
+              name="angle-right"
+              style={{
+                fontSize: 12,
+                color: currentSelected == index ? COLOURS.black : COLOURS.white,
+              }}
+            />
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View
       style={{
@@ -74,6 +136,24 @@ const HomeScreen = () => {
               Delivery
             </Text>
           </View>
+          <Text
+            style={{
+              paddingTop: 20,
+              paddingHorizontal: 20,
+              fontSize: 18,
+              fontWeight: '700',
+              color: COLOURS.black,
+              letterSpacing: 1,
+            }}>
+            Categories
+          </Text>
+          <FlatList
+            horizontal={true}
+            data={Categories}
+            renderItem={renderCategories}
+            showsHorizontalScrollIndicator={false}
+          />
+
 
         </View>
       </ScrollView>
