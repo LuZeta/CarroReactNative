@@ -253,7 +253,7 @@ const HomeScreen = () => {
               style={styles.topTitle}>Food</Text>
             <Text style={styles.title}>Delivery </Text>
           </View>
-          <Text style={styles.titleCategory}> Categories </Text>
+          <Text style={styles.titleCategory}> Categorias </Text>
           <FlatList
             horizontal={true}
             data={Categories}
