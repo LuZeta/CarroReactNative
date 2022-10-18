@@ -2,15 +2,18 @@ import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View }
 import React, { useState } from 'react'
 import { COLOURS } from '../../constants/colors'
 import Material from '@expo/vector-icons/MaterialCommunityIcons'
-import FontAwesome from '@expo/vector-icons/FontAwesome'
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 import AntDesign from '@expo/vector-icons/AntDesign'
 import Entypo from '@expo/vector-icons/Entypo'
 import { Categories } from '../database/items'
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
   const [currentSelected, setCurrentSelected] = useState([0]);
+  const navigation = useNavigation();
 
   const renderCategories = ({ item, index }) => {
+
     return (
       <TouchableOpacity
         activeOpacity={0.9}
@@ -55,7 +58,7 @@ const HomeScreen = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <FontAwesome
+            <FontAwesome5
               name="angle-right"
               style={{
                 fontSize: 12,
@@ -69,6 +72,7 @@ const HomeScreen = () => {
   };
 
   const renderItems = (data, index) => {
+
     return (
       <TouchableOpacity
         key={index}
@@ -80,7 +84,7 @@ const HomeScreen = () => {
           alignItems: 'center',
         }}
         onPress={() =>
-          navigation.push('details', {
+          navigation.navigate('MisProductos', {
             name: data.name,
             price: data.price,
             image: data.image,
@@ -89,7 +93,6 @@ const HomeScreen = () => {
             delivery: data.delivery,
             ingredients: data.ingredients,
             isTopOfTheWeek: data.isTopOfTheWeek,
-            navigation: navigation,
           })
         }>
         <View
@@ -112,7 +115,7 @@ const HomeScreen = () => {
                 alignItems: 'center',
                 display: data.isTopOfTheWeek ? 'flex' : 'none',
               }}>
-              <FontAwesome
+              <FontAwesome5
                 name="crown"
                 style={{
                   fontSize: 10,
@@ -210,11 +213,10 @@ const HomeScreen = () => {
         <View style={styles.container}>
           <Image source={require('../assets/images/background.png')} style={{ position: 'absolute', top: 0, left: -100 }} />
           <View style={styles.headerSection}>
-            <TouchableOpacity
-              style={{
-                width: 40,
-                height: 40,
-              }}>
+            <TouchableOpacity style={{
+              width: 40,
+              height: 40,
+            }}>
               <Image
                 source={{
                   uri: "https://lh3.googleusercontent.com/a-/AFdZucrTaR6Kc9j8e9OBuSjCmnE60SjOGHg5FVm_l74-=s192-c-rg-br100"

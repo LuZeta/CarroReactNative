@@ -1,13 +1,19 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { useRoute } from '@react-navigation/native'
 
-export default class Carrito extends Component {
-  render() {
-    return (
-      <View>
-        <Text>aca pantalla prici´pal bottom</Text>
-       
-      </View>
-    )
-  }
+const MisProductos = () => {
+
+  const route = useRoute();
+  console.log('route ', route.params)
+
+  return (
+    <View>
+      <Text>MisProductos</Text>
+    </View>
+  )
 }
+
+export default MisProductos
+
+const styles = StyleSheet.create({})
