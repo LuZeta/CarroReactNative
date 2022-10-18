@@ -100,6 +100,8 @@ const HomeScreen = () => {
             width: '90%',
             height: 160,
             backgroundColor: COLOURS.white,
+            borderWidth: 1,
+            borderColor: COLOURS.light,
             borderRadius: 20,
             elevation: 4,
             position: 'relative',
@@ -167,21 +169,28 @@ const HomeScreen = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <View
-              style={{
-                width: 85,
-                height: 50,
-                backgroundColor: COLOURS.accent,
-                borderTopRightRadius: 20,
-                borderBottomLeftRadius: 20,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Entypo
-                name="plus"
-                style={{ fontSize: 18, color: COLOURS.black }}
-              />
-            </View>
+            <TouchableOpacity
+              onPress={() => {
+
+              }}
+            >
+              <View
+                style={{
+                  width: 85,
+                  height: 50,
+                  backgroundColor: COLOURS.accentRed,
+                  borderTopRightRadius: 20,
+                  borderBottomLeftRadius: 20,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Entypo
+                  name="circle-with-plus"
+                  style={{ fontSize: 30, color: COLOURS.white }}
+                />
+              </View>
+            </TouchableOpacity>
+
             <View
               style={{
                 flexDirection: 'row',
