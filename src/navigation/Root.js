@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 export default function Root({ colorScheme }) {
-    console.log('root ')
+
     return (
         <NavigationContainer
             theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
@@ -78,7 +78,7 @@ function HomeStack() {
                 name="MisProductos"
                 component={MisProductos}
                 options={{
-                    headerShown: true,
+                    headerShown: false,
                     title: 'Detalle'
                 }}
             />
