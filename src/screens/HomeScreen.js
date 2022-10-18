@@ -292,7 +292,7 @@ const HomeScreen = ({ data, addShop }) => {
   )
 }
 const mapStateToProps = (state) => {
-  console.log('state HomeScreen ', state.Carrito)
+  // console.log('state HomeScreen ', state.Carrito)
   return { data: state.Carrito }
 }
 

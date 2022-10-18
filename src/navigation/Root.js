@@ -52,7 +52,7 @@ function BottomNavigation() {
                         <TabBarIcon name="cart" color={color} />
                     ),
                     headerShown: false,
-                    tabBarLabel: "Home",
+                    tabBarLabel: "Carrito",
                 }}
             />
             <Tab.Screen
