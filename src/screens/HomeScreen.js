@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import { connect } from 'react-redux'
 import { addShop } from '../reducers/carrito'
 
-const HomeScreen = ({ addShop }) => {
+const HomeScreen = ({ data, addShop }) => {
   const [currentSelected, setCurrentSelected] = useState([0]);
   const navigation = useNavigation();
 
@@ -174,7 +174,7 @@ const HomeScreen = ({ addShop }) => {
             <TouchableOpacity
               onPress={() => {
                 // console.log('add comida ', data.id, data.name)
-                addShop(data.id)
+                addShop(data)
               }}
             >
               <View
@@ -291,13 +291,13 @@ const HomeScreen = ({ addShop }) => {
     </View>
   )
 }
-const mapStateToProps = state => {
-  // console.log('state HomeScreen ', state)
-  return state
+const mapStateToProps = (state) => {
+  console.log('state HomeScreen ', state.carrito)
+  return { data: state.carrito }
 }
 
 const mapDispatchToProps = dispatch => ({
-  addShop: (id) => dispatch(addShop(id))
+  addShop: (data) => dispatch(addShop(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
