@@ -1,10 +1,11 @@
 
 export const Categories = [
   {
-    name: 'Burger',
+    name: 'Comida',
     image: require('../assets/images/burger.png'),
     items: [
       {
+        id: 1,
         name: 'Classic Burger',
         weight: 120,
         rating: '5.0',
@@ -22,6 +23,7 @@ export const Categories = [
         ],
       },
       {
+        id: 2,
         name: 'Aloo Tikki Burger',
         weight: 150,
         rating: '4.5',
@@ -39,6 +41,7 @@ export const Categories = [
         ],
       },
       {
+        id: 3,
         name: 'Biggie Cheese',
         weight: 250,
         rating: '4.2',
@@ -58,10 +61,12 @@ export const Categories = [
     ],
   },
   {
+
     name: 'Pizza',
     image: require('../assets/images/pizza.png'),
     items: [
       {
+        id: 4,
         name: 'Pepperoni Pizza',
         weight: 250,
         rating: '5.0',
@@ -79,6 +84,7 @@ export const Categories = [
         ],
       },
       {
+        id: 5,
         name: 'Plain Cheese Pizza',
         weight: 300,
         rating: '4.5',
@@ -96,6 +102,7 @@ export const Categories = [
         ],
       },
       {
+        id: 6,
         name: 'Mexican Green Wave',
         weight: 350,
         rating: '4.2',
@@ -119,6 +126,7 @@ export const Categories = [
     image: require('../assets/images/softdrinks.png'),
     items: [
       {
+        id: 7,
         name: 'Coco Cola',
         weight: 200,
         rating: '5.0',
@@ -131,6 +139,7 @@ export const Categories = [
         ingredients: [require('../assets/images/softdrinks/cocacola.png')],
       },
       {
+        id: 8,
         name: 'Orange Juice',
         weight: 500,
         rating: '4.5',
@@ -143,6 +152,7 @@ export const Categories = [
         ingredients: [require('../assets/images/softdrinks/orange.png')],
       },
       {
+        id: 9,
         name: 'Mango Juice',
         weight: 150,
         rating: '4.2',
