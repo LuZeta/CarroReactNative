@@ -7,13 +7,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import NavigationStack from './src/navigation/NavigationStack';
 import { Provider } from 'react-redux';
 import store from './store';
+import Root from './src/navigation/Root';
 
 export default function App() {
   return (
     <Provider store={store}>
-    <NavigationContainer>
-      <NavigationStack/>
-    </NavigationContainer>
+      <Root />
     </Provider>
   );
 }

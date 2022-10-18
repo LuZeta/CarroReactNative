@@ -1,20 +1,14 @@
-import { Text, View, Icon } from 'react-native'
-import React, { Component } from 'react'
-import {connect} from 'react-redux';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-
-
-const ShoppingCartIcon = (props) => (
-  <View>
-      <Icon onPress={() => props.navigation.navigate('Cart')}  />
-  </View>
-)
-
-const mapStateToProps = (state) => {
-  return {
-      cartItems: state
-  }
+const Carrito = () => {
+  return (
+    <View>
+      <Text>Carrito</Text>
+    </View>
+  )
 }
 
+export default Carrito
 
-export default  connect(mapStateToProps) (ShoppingCartIcon);
+const styles = StyleSheet.create({})

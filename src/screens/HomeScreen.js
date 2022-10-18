@@ -1,27 +1,21 @@
-import { Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-// import Navbar from './Navbar';
+import { COLOURS } from '../../constants/colors'
 
+const HomeScreen = () => {
+  return (
+    <View
+      style={{
+        paddingVertical: 30,
+        flex: 1,
+        backgroundColor: COLOURS.white,
+      }}>
+      <Text>HomeScreen</Text>
 
-export default function HomeScreen (props) {
-
-  const {navigation} = props;
-
-  const goToMisProductos= () => {
-    navigation.navigate("MisProductos");
-  }
-    return (
-      <View>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text>
-        
-        <Button onPress={goToMisProductos} title='MisProductos' />
-      </View>
-    )
-  
+    </View>
+  )
 }
+
+export default HomeScreen
+
+const styles = StyleSheet.create({})
