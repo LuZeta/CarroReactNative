@@ -7,11 +7,12 @@ import Carrito from '../screens/Carrito';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import MisProductos from '../screens/MisProductos';
+import { connect } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-export default function Root({ colorScheme }) {
+const Root = ({ colorScheme }) => {
 
     return (
         <NavigationContainer
@@ -21,6 +22,12 @@ export default function Root({ colorScheme }) {
         </NavigationContainer>
     );
 }
+// const mapStateToProps = state => {
+//     console.log('log ', state)
+//     return state
+// }
+// export default connect(mapStateToProps)(Root);
+export default Root;
 
 function BottomNavigation() {
 

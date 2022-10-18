@@ -7,8 +7,10 @@ import AntDesign from '@expo/vector-icons/AntDesign'
 import Entypo from '@expo/vector-icons/Entypo'
 import { Categories } from '../database/items'
 import { useNavigation } from '@react-navigation/native'
+import { connect } from 'react-redux'
+import { addShop } from '../reducers/carrito'
 
-const HomeScreen = () => {
+const HomeScreen = ({ addShop }) => {
   const [currentSelected, setCurrentSelected] = useState([0]);
   const navigation = useNavigation();
 
@@ -171,7 +173,8 @@ const HomeScreen = () => {
             }}>
             <TouchableOpacity
               onPress={() => {
-                console.log('add comida ', data.id, data.name)
+                // console.log('add comida ', data.id, data.name)
+                addShop(data.id)
               }}
             >
               <View
@@ -288,8 +291,16 @@ const HomeScreen = () => {
     </View>
   )
 }
+const mapStateToProps = state => {
+  // console.log('state HomeScreen ', state)
+  return state
+}
 
-export default HomeScreen
+const mapDispatchToProps = dispatch => ({
+  addShop: (id) => dispatch(addShop(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
   wrapper: {
