@@ -171,7 +171,7 @@ const HomeScreen = () => {
             }}>
             <TouchableOpacity
               onPress={() => {
-
+                console.log('add comida ', data.id, data.name)
               }}
             >
               <View
