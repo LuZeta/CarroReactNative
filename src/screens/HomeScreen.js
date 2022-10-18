@@ -292,8 +292,8 @@ const HomeScreen = ({ data, addShop }) => {
   )
 }
 const mapStateToProps = (state) => {
-  console.log('state HomeScreen ', state.carrito)
-  return { data: state.carrito }
+  console.log('state HomeScreen ', state.Carrito)
+  return { data: state.Carrito }
 }
 
 const mapDispatchToProps = dispatch => ({

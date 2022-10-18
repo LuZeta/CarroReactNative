@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { Provider } from 'react-redux';
 import Root from './src/navigation/Root';
-import { store } from './store/store';
+import { store } from './src/store/store';
 
 export default function Wrapper() {
   const theme = useColorScheme();
