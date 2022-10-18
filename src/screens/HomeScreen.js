@@ -205,28 +205,11 @@ const HomeScreen = () => {
   };
 
   return (
-    <View
-      style={{
-        paddingVertical: 30,
-        flex: 1,
-        backgroundColor: COLOURS.white,
-      }}>
+    <View style={styles.wrapper}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            width: '100%',
-            height: '100%',
-            backgroundColor: COLOURS.white,
-            position: 'relative',
-          }}>
-
+        <View style={styles.container}>
           <Image source={require('../assets/images/background.png')} style={{ position: 'absolute', top: 0, left: -100 }} />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              padding: 20,
-            }}>
+          <View style={styles.headerSection}>
             <TouchableOpacity
               style={{
                 width: 40,
@@ -256,35 +239,10 @@ const HomeScreen = () => {
           </View>
           <View style={{ padding: 20 }}>
             <Text
-              style={{
-                fontSize: 16,
-                color: COLOURS.black,
-                opacity: 0.5,
-                fontWeight: '400',
-              }}>
-              Food
-            </Text>
-            <Text
-              style={{
-                fontSize: 40,
-                color: COLOURS.black,
-                fontWeight: '600',
-                letterSpacing: 2,
-              }}>
-              Delivery
-            </Text>
+              style={styles.topTitle}>Food</Text>
+            <Text style={styles.title}>Delivery </Text>
           </View>
-          <Text
-            style={{
-              paddingTop: 20,
-              paddingHorizontal: 20,
-              fontSize: 18,
-              fontWeight: '700',
-              color: COLOURS.black,
-              letterSpacing: 1,
-            }}>
-            Categories
-          </Text>
+          <Text style={styles.titleCategory}> Categories </Text>
           <FlatList
             horizontal={true}
             data={Categories}
@@ -316,7 +274,6 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
     </View>
   )
 }
@@ -324,10 +281,47 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: COLOURS.white,
+  },
+  container: {
+    paddingVertical: 30,
+    width: '100%',
+    height: '100%',
+    backgroundColor: COLOURS.white,
+    position: 'relative',
+  },
+  headerSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+  topTitle: {
+    fontSize: 16,
+    color: COLOURS.black,
+    opacity: 0.5,
+    fontWeight: '400',
+  },
+  title: {
+    fontSize: 40,
+    color: COLOURS.black,
+    fontWeight: '600',
+    letterSpacing: 2,
+  },
   titleMenu: {
     paddingTop: 20,
     paddingHorizontal: 20,
     fontSize: 18,
     fontWeight: '700',
+  },
+  titleCategory: {
+    paddingTop: 20,
+    paddingHorizontal: 20,
+    fontSize: 18,
+    fontWeight: '700',
+    color: COLOURS.black,
+    letterSpacing: 1,
   }
+
 })
