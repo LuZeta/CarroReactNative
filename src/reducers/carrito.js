@@ -14,11 +14,13 @@ const Carrito = (state = initialState, action) => {
     switch (action.type) {
         case ADDITEM:
 
-            const { id, name, price } = action.payload;
+            // console.log('action.payload', action.payload)
+            const { id, name, price, image } = action.payload;
+
             if (state.pedidos.length == 0) {
                 return {
                     ...state,
-                    pedidos: [{ id, name, price, cantidad: 1 }],
+                    pedidos: [{ id, name, price, image, cantidad: 1 }],
                 };
             } else {
                 const nuevoCarrito = [...state.pedidos];
@@ -33,6 +35,8 @@ const Carrito = (state = initialState, action) => {
                             nuevoCarrito[index] = {
                                 id,
                                 name,
+                                price,
+                                image,
                                 cantidad: cantidad + 1,
                             };
                         }
@@ -41,6 +45,8 @@ const Carrito = (state = initialState, action) => {
                     nuevoCarrito.push({
                         id,
                         name,
+                        price,
+                        image,
                         cantidad: 1,
                     });
                 }
@@ -50,6 +56,7 @@ const Carrito = (state = initialState, action) => {
                     pedidos: nuevoCarrito,
                 };
             }
+        // return state;
 
         // return [...state, { pedido: action.payload }]
         // case 'REMOVE_FROM_CART':

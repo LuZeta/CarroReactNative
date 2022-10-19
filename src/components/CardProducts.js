@@ -1,11 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { COLOURS } from '../../constants/colors'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 
 const CardProducts = (props) => {
     console.log('props ', props)
-    const { id, name, cantidad, price } = props
+    const { id, name, cantidad, price, image } = props
 
     return (
         <TouchableOpacity
@@ -31,7 +31,14 @@ const CardProducts = (props) => {
                     borderRadius: 10,
                     marginRight: 22,
                 }}>
-                <Text>Iamgen</Text>
+                <Image
+                    source={image}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        resizeMode: 'contain',
+                    }}
+                />
             </View>
             <View
                 style={{
