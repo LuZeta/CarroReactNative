@@ -21,17 +21,9 @@ const HomeScreen = ({ data, addShop }) => {
         activeOpacity={0.9}
         onPress={() => setCurrentSelected(index)}>
         <View
-          style={{
-            width: 120,
-            height: 180,
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            backgroundColor:
-              currentSelected == index ? COLOURS.accent : COLOURS.white,
-            borderRadius: 20,
-            margin: 10,
-            elevation: 5,
-          }}>
+          style={[styles.containerCategory, {
+            backgroundColor: currentSelected == index ? COLOURS.accent : COLOURS.white,
+          }]}>
           <View style={{ width: 60, height: 60 }}>
             <Image
               source={item.image}
@@ -344,6 +336,15 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: COLOURS.black,
     letterSpacing: 1,
+  },
+  containerCategory: {
+    width: 120,
+    height: 180,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 10,
+    elevation: 5,
   }
 
 })

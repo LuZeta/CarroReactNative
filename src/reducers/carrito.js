@@ -4,9 +4,15 @@ const initialState = {
 }
 
 const ADDITEM = 'ADDITEM';
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 export const addShop = data => ({
     type: ADDITEM,
+    payload: data,
+})
+
+export const deleteCart = data => ({
+    type: REMOVE_FROM_CART,
     payload: data,
 })
 
@@ -14,9 +20,7 @@ const Carrito = (state = initialState, action) => {
     switch (action.type) {
         case ADDITEM:
 
-            // console.log('action.payload', action.payload)
             const { id, name, price, image } = action.payload;
-
             if (state.pedidos.length == 0) {
                 return {
                     ...state,
@@ -56,11 +60,10 @@ const Carrito = (state = initialState, action) => {
                     pedidos: nuevoCarrito,
                 };
             }
-        // return state;
 
         // return [...state, { pedido: action.payload }]
-        // case 'REMOVE_FROM_CART':
-        //     return state.filter(cartItem => cartItem.id !== action.payload.id)
+        case REMOVE_FROM_CART:
+            return state.pedidos.filter(cartItem => cartItem.id !== action.payload.id)
         default:
             return state
     }
