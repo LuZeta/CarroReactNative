@@ -8,7 +8,8 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native'
 import { useEffect } from 'react'
 
-const Carrito = ({ data }) => {
+const Carrito = ({ data, total }) => {
+  console.log('total ', total)
   const { pedidos } = data;
   const navigation = useNavigation();
 
@@ -111,7 +112,7 @@ const Carrito = ({ data }) => {
                   color: COLOURS.black,
                 }}>
                 {/* $ {total + total / 20} */}
-                total
+                {total}
               </Text>
             </View>
           </View>
@@ -122,7 +123,7 @@ const Carrito = ({ data }) => {
 }
 const mapStateToProps = (state) => {
   // console.log('screen Carrito ', state.Carrito)
-  return { data: state.Carrito }
+  return { data: state.Carrito, total: state.Total }
 }
 export default connect(mapStateToProps)(Carrito)
 

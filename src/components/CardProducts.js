@@ -3,7 +3,7 @@ import React from 'react'
 import { COLOURS } from '../../constants/colors'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 
-const CardProducts = ({ setTotal, value }) => {
+const CardProducts = ({ value }) => {
     // console.log('props ', props)
     const { id, name, cantidad, price, image } = value
 

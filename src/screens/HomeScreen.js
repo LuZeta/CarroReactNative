@@ -9,12 +9,12 @@ import { Categories } from '../database/items'
 import { useNavigation } from '@react-navigation/native'
 import { connect } from 'react-redux'
 import { addShop } from '../reducers/carrito'
+import { setTotalCart } from '../reducers/totalCart'
 
-const HomeScreen = ({ data, addShop }) => {
+
+const HomeScreen = ({ data, addShop, setTotalCart, }) => {
   const [currentSelected, setCurrentSelected] = useState([0]);
   const navigation = useNavigation();
-
-  const [total, setTotal] = useState(null);
 
   const getTotal = productData => {
     const { pedidos } = productData;
@@ -26,8 +26,7 @@ const HomeScreen = ({ data, addShop }) => {
       total = total + productPrice;
     }
     console.log('total ', total)
-    setTotal(total);
-
+    setTotalCart(total)
   };
 
 
@@ -271,7 +270,7 @@ const HomeScreen = ({ data, addShop }) => {
   )
 }
 const mapStateToProps = (state) => {
-  // console.log('state HomeScreen ', state.Carrito)
+  console.log('state HomeScreen ', state)
   return { data: state.Carrito }
 }
 
@@ -280,7 +279,7 @@ const mapDispatchToProps = dispatch => ({
   setTotalCart: (data) => dispatch(setTotalCart(data))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+export default connect(mapStateToProps, mapDispatchToProps,)(HomeScreen)
 
 const styles = StyleSheet.create({
   wrapper: {
