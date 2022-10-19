@@ -3,15 +3,15 @@ import React from 'react'
 import { COLOURS } from '../../constants/colors'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 
-const CardProducts = (props) => {
-    console.log('props ', props)
-    const { id, name, cantidad, price, image } = props
+const CardProducts = ({ setTotal, value }) => {
+    // console.log('props ', props)
+    const { id, name, cantidad, price, image } = value
 
     return (
         <TouchableOpacity style={styles.container}
             key={id}
             onPress={() => {
-                console.log('press')
+                console.log('press ', value);
             }}
         >
             <View style={styles.wrapper}>

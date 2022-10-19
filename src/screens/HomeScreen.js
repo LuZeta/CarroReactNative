@@ -14,6 +14,23 @@ const HomeScreen = ({ data, addShop }) => {
   const [currentSelected, setCurrentSelected] = useState([0]);
   const navigation = useNavigation();
 
+  const [total, setTotal] = useState(null);
+
+  const getTotal = productData => {
+    const { pedidos } = productData;
+    console.log('pedidos ', pedidos)
+
+    let total = 0;
+    for (let index = 0; index < pedidos.length; index++) {
+      let productPrice = pedidos[index].price;
+      total = total + productPrice;
+    }
+    console.log('total ', total)
+    setTotal(total);
+
+  };
+
+
   const renderCategories = ({ item, index }) => {
 
     return (
@@ -64,7 +81,7 @@ const HomeScreen = ({ data, addShop }) => {
     );
   };
 
-  const renderItems = (data, index) => {
+  const renderItems = (item, index) => {
 
     return (
       <TouchableOpacity
@@ -78,14 +95,14 @@ const HomeScreen = ({ data, addShop }) => {
         }}
         onPress={() =>
           navigation.navigate('MisProductos', {
-            name: data.name,
-            price: data.price,
-            image: data.image,
-            size: data.size,
-            crust: data.crust,
-            delivery: data.delivery,
-            ingredients: data.ingredients,
-            isTopOfTheWeek: data.isTopOfTheWeek,
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            size: item.size,
+            crust: item.crust,
+            delivery: item.delivery,
+            ingredients: item.ingredients,
+            isTopOfTheWeek: item.isTopOfTheWeek,
           })
         }>
         <View style={styles.wrapperMenu}>
@@ -94,7 +111,7 @@ const HomeScreen = ({ data, addShop }) => {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                display: data.isTopOfTheWeek ? 'flex' : 'none',
+                display: item.isTopOfTheWeek ? 'flex' : 'none',
               }}>
               <FontAwesome5
                 name="crown"
@@ -120,7 +137,7 @@ const HomeScreen = ({ data, addShop }) => {
                 fontWeight: 'bold',
                 paddingTop: 10,
               }}>
-              {data.name}
+              {item.name}
             </Text>
             <Text
               style={{
@@ -128,12 +145,12 @@ const HomeScreen = ({ data, addShop }) => {
                 color: COLOURS.black,
                 opacity: 0.5,
               }}>
-              {data.weight}
+              {item.weight}
             </Text>
           </View>
           <View style={{ width: 150, height: 150, marginRight: -45 }}>
             <Image
-              source={data.image}
+              source={item.image}
               style={{
                 width: '100%',
                 height: '100%',
@@ -151,7 +168,8 @@ const HomeScreen = ({ data, addShop }) => {
             <TouchableOpacity
               onPress={() => {
                 // console.log('add comida ', data.id, data.name)
-                addShop(data)
+                addShop(item)
+                getTotal(data)
               }}
             >
               <View
@@ -187,7 +205,7 @@ const HomeScreen = ({ data, addShop }) => {
                   color: COLOURS.black,
                   fontWeight: 'bold',
                 }}>
-                {data.rating}
+                {item.rating}
               </Text>
             </View>
           </View>
@@ -258,7 +276,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addShop: (data) => dispatch(addShop(data))
+  addShop: (data) => dispatch(addShop(data)),
+  setTotalCart: (data) => dispatch(setTotalCart(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

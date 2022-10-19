@@ -5,6 +5,7 @@ const initialState = {
 
 const ADDITEM = 'ADDITEM';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+const SET_TOTAL_CART = 'SET_TOTAL_CART';
 
 export const addShop = data => ({
     type: ADDITEM,
@@ -13,6 +14,11 @@ export const addShop = data => ({
 
 export const deleteCart = data => ({
     type: REMOVE_FROM_CART,
+    payload: data,
+})
+
+export const setTotalCart = data => ({
+    type: SET_TOTAL_CART,
     payload: data,
 })
 
@@ -64,6 +70,8 @@ const Carrito = (state = initialState, action) => {
         // return [...state, { pedido: action.payload }]
         case REMOVE_FROM_CART:
             return state.pedidos.filter(cartItem => cartItem.id !== action.payload.id)
+        case SET_TOTAL_CART:
+            return state.total = action.payload;
         default:
             return state
     }

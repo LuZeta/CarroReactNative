@@ -6,10 +6,10 @@ import React, { useState } from 'react'
 import CardProducts from '../components/CardProducts'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native'
+import { useEffect } from 'react'
 
 const Carrito = ({ data }) => {
   const { pedidos } = data;
-  const [total, setTotal] = useState(null);
   const navigation = useNavigation();
 
   return (
@@ -64,7 +64,7 @@ const Carrito = ({ data }) => {
         <View style={{ paddingHorizontal: 16 }}>
           {pedidos ? pedidos.map((value) => {
             return (
-              <CardProducts {...value} />
+              <CardProducts value={value} />
             )
           }) : null}
         </View>
@@ -110,7 +110,8 @@ const Carrito = ({ data }) => {
                   fontWeight: '500',
                   color: COLOURS.black,
                 }}>
-                $ {total + total / 20}
+                {/* $ {total + total / 20} */}
+                total
               </Text>
             </View>
           </View>
