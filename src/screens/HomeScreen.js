@@ -17,8 +17,7 @@ const HomeScreen = ({ data, addShop }) => {
   const renderCategories = ({ item, index }) => {
 
     return (
-      <TouchableOpacity
-        activeOpacity={0.9}
+      <TouchableOpacity activeOpacity={0.9}
         onPress={() => setCurrentSelected(index)}>
         <View
           style={[styles.containerCategory, {
@@ -89,21 +88,7 @@ const HomeScreen = ({ data, addShop }) => {
             isTopOfTheWeek: data.isTopOfTheWeek,
           })
         }>
-        <View
-          style={{
-            width: '90%',
-            height: 160,
-            backgroundColor: COLOURS.white,
-            borderWidth: 1,
-            borderColor: COLOURS.light,
-            borderRadius: 20,
-            elevation: 4,
-            position: 'relative',
-            padding: 15,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
+        <View style={styles.wrapperMenu}>
           <View style={{ marginBottom: 50 }}>
             <View
               style={{
@@ -217,22 +202,6 @@ const HomeScreen = ({ data, addShop }) => {
         <View style={styles.container}>
           <Image source={require('../assets/images/background.png')} style={{ position: 'absolute', top: 0, left: -100 }} />
           <View style={styles.headerSection}>
-            <TouchableOpacity style={{
-              width: 40,
-              height: 40,
-            }}>
-              <Image
-                source={{
-                  uri: "https://lh3.googleusercontent.com/a-/AFdZucrTaR6Kc9j8e9OBuSjCmnE60SjOGHg5FVm_l74-=s192-c-rg-br100"
-                }}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  resizeMode: 'contain',
-                  borderRadius: 500,
-                }}
-              />
-            </TouchableOpacity>
             <TouchableOpacity>
               <Material
                 name="segment"
@@ -308,7 +277,7 @@ const styles = StyleSheet.create({
   },
   headerSection: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     padding: 20,
   },
   topTitle: {
@@ -345,6 +314,20 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 10,
     elevation: 5,
+  },
+  wrapperMenu: {
+    width: '90%',
+    height: 160,
+    backgroundColor: COLOURS.white,
+    borderWidth: 1,
+    borderColor: COLOURS.light,
+    borderRadius: 20,
+    elevation: 4,
+    position: 'relative',
+    padding: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   }
 
 })
