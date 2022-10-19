@@ -18,6 +18,12 @@ const HomeScreen = ({ data, addShop, setTotalCart, }) => {
 
   const getTotal = productData => {
     const { pedidos } = productData;
+    // let SumTotalSaldos = pedidos?.reduce(
+    //   (previousValue, currentValue) => previousValue + currentValue.price,
+    //   0
+    // );
+    // console.log('SumTotalSaldos ', SumTotalSaldos)
+
     console.log('pedidos ', pedidos)
 
     let total = 0;
@@ -25,7 +31,6 @@ const HomeScreen = ({ data, addShop, setTotalCart, }) => {
       let productPrice = pedidos[index].price;
       total = total + productPrice;
     }
-    console.log('total ', total)
     setTotalCart(total)
   };
 

@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useEffect } from 'react'
 
 const Carrito = ({ data, total }) => {
-  console.log('total ', total)
+  // console.log('total ', total)
   const { pedidos } = data;
   const navigation = useNavigation();
 
@@ -122,7 +122,6 @@ const Carrito = ({ data, total }) => {
   )
 }
 const mapStateToProps = (state) => {
-  // console.log('screen Carrito ', state.Carrito)
   return { data: state.Carrito, total: state.Total }
 }
 export default connect(mapStateToProps)(Carrito)
